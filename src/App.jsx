@@ -40,7 +40,7 @@ function App() {
           toastOptions={{
             style: {
               margin: "8px",
-              fontSize: "12px",
+              fontSize: "14px",
               maxWidth: "500px",
               padding: "16px 24px",
               backgroundColor: "var(--color-grey-0)",

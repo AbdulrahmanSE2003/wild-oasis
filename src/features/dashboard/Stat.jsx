@@ -1,9 +1,6 @@
-import styled from 'styled-components';
-import { box } from 'styles/styles';
+import styled from "styled-components";
 
 const StyledStat = styled.div`
-  ${box}
-
   padding: 1.6rem;
   display: grid;
   grid-template-columns: 6.4rem 1fr;
