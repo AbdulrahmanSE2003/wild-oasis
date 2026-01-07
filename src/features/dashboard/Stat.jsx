@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import { box } from 'styles/styles';
+import styled from "styled-components";
 
 const StyledStat = styled.div`
-  ${box}
-
   padding: 1.6rem;
+  background-color: var(--color-grey-0);
+  border-radius: 1rem;
   display: grid;
   grid-template-columns: 6.4rem 1fr;
   grid-template-rows: auto auto;
@@ -51,7 +50,7 @@ function Stat({ icon, title, value, color }) {
     <StyledStat>
       <Icon color={color}>{icon}</Icon>
       <Title>{title}</Title>
-      <Value>{value}</Value>
+      <Value>{value || "— "}</Value>
     </StyledStat>
   );
 }
