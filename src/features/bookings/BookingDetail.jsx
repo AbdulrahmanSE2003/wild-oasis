@@ -9,7 +9,6 @@ import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-// import { useCheckout } from "../../features/check-in-out/CheckinBooking";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useCheckout } from "../check-in-out/useCheckout";
 
@@ -17,6 +16,7 @@ import ButtonText from "../../ui/ButtonText";
 import Spinner from "../../ui/Spinner";
 import useBooking from "./useBooking";
 import { useDeleteBooking } from "../check-in-out/useDeleteBooking";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ function BookingDetail() {
 
   if (isLoading) return <Spinner />;
 
-  if (!booking) return <p>Booking not found.</p>;
+  if (!booking) return <Empty resourceName="booking" />;
 
   const { id: bookingId, status } = booking;
 
