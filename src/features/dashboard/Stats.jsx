@@ -14,18 +14,21 @@ export default function Stats({
   cabinCount,
 }) {
   // 1. no.of bookings
-  const noBookings = bookings?.length;
+  const noBookings = bookings?.length || 0;
 
   // 2. total sales
-  const sales = bookings?.reduce((acc, cur) => acc + cur.totalPrice, 0);
+  const sales = bookings?.reduce((acc, cur) => acc + cur.totalPrice, 0) || 0;
 
   // 3. no.of stays
-  const checkins = confirmedStays?.length;
+  const checkins = confirmedStays?.length || 0;
 
   // 4. occupancy rate
+  const totalAvailableNights = numDays * cabinCount;
+  const occupiedNights =
+    confirmedStays?.reduce((acc, cur) => acc + cur.numNights, 0) || 0;
+
   const occupancyRate =
-    confirmedStays?.reduce((acc, cur) => acc + cur.numNights, 0) /
-    (numDays * cabinCount);
+    totalAvailableNights > 0 ? occupiedNights / totalAvailableNights : 0;
 
   return (
     <>
@@ -36,7 +39,7 @@ export default function Stats({
         icon={<HiOutlineBriefcase />}
       />
       <Stat
-        title="sales"
+        title="Sales"
         value={formatCurrency(sales)}
         color="green"
         icon={<HiOutlineBanknotes />}
